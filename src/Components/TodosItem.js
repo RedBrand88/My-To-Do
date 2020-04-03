@@ -8,14 +8,12 @@ const getStyle = (completed) => {
     }
 }
 
-const markComplete = (e) => {
-    console.log(e.target.value);
-}
-
-const TodosItem = ({text, completed}) => {
+const TodosItem = (props) => {
+    
+    const {id, completed, text} = props.todo;
     return (
         <div style={getStyle(completed)}>
-            <input type="checkbox" onChange={markComplete}/>
+            <input type="checkbox" onChange={props.toggleComplete.bind(this, id)}/>
             {text}
             {/** create a delete button component */}
             <span>x</span>
