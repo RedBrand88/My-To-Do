@@ -11,11 +11,13 @@ const getStyle = (completed) => {
 
 const btnStyle = {
     background: "#ff0000",
+    color: "#fff",
     border: "none",
     padding: "5px 8px",
     borderRadius: "50%",
     float: "right",
-    marginRight: "2px"
+    marginRight: "2px",
+    cursor: "pointer"
 }
 
 const TodosItem = (props) => {

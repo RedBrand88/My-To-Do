@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Todos from './Components/Todos';
 
 import './App.css';
+import Header from './Components/layout/Header';
+import AddForm from './Components/AddForm';
 
 class App extends Component {
   constructor(props) {
@@ -43,6 +45,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
+        <AddForm />
         <Todos 
           todos={this.state.todos} 
           toggleComplete={this.toggleComplete}
