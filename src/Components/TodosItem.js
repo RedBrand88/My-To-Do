@@ -16,7 +16,7 @@ const btnStyle = {
     padding: "5px 8px",
     borderRadius: "50%",
     float: "right",
-    marginRight: "2px",
+    marginRight: "5px",
     cursor: "pointer"
 }
 
@@ -25,7 +25,7 @@ const TodosItem = (props) => {
     const {id, completed, text} = props.todo;
     return (
         <div style={getStyle(completed)}>
-            <input type="checkbox" onChange={props.toggleComplete.bind(this, id)}/> {' '}
+            <input style={{marginLeft: "5px"}} type="checkbox" onChange={props.toggleComplete.bind(this, id)}/> {' '}
             {text}
             {/** create a delete button component */}
             <button style={btnStyle} onClick={props.deleteTodo.bind(this, id)}>x</button>
