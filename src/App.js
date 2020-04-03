@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './Components/Todos';
+import { v4 as uuidv4 } from 'uuid';
 
 import './App.css';
 import Header from './Components/layout/Header';
@@ -11,17 +12,17 @@ class App extends Component {
     this.state = {
       todos: [
         {
-          id: 1,
+          id: uuidv4(),
           text: "take out the trash",
           completed: false
         },
         {
-          id: 2,
+          id: uuidv4(),
           text: "do the dishes",
           completed: false
         },
         {
-          id: 3,
+          id: uuidv4(),
           text: "walk the dog",
           completed: false
         }
@@ -42,11 +43,20 @@ class App extends Component {
     this.setState({ todos: [...this.state.todos.filter(todo => id !== todo.id)]})
   }
 
+  addForm = (text) => {
+    const newObj = {
+      id: uuidv4(),
+      text,
+      completed: false
+    };
+    this.setState({ todos: [...this.state.todos, newObj]});
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <AddForm />
+        <AddForm addForm={this.addForm}/>
         <Todos 
           todos={this.state.todos} 
           toggleComplete={this.toggleComplete}
