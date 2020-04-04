@@ -22,11 +22,11 @@ const btnStyle = {
 
 const TodosItem = (props) => {
     
-    const {id, completed, text} = props.todo;
+    const {id, completed, title} = props.todo;
     return (
         <div style={getStyle(completed)}>
             <input style={{marginLeft: "5px"}} type="checkbox" onChange={props.toggleComplete.bind(this, id)}/> {' '}
-            {text}
+            {title}
             {/** create a delete button component */}
             <button style={btnStyle} onClick={props.deleteTodo.bind(this, id)}>x</button>
         </div>

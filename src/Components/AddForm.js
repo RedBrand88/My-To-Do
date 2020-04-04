@@ -4,7 +4,7 @@ class AddForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            text: ""
+            title: ""
         }
     }
 
@@ -14,8 +14,8 @@ class AddForm extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        this.props.addForm(this.state.text);
-        this.setState({state: ""})
+        this.props.addForm(this.state.title);
+        this.setState({title: ""})
     }
 
     render() {
@@ -23,10 +23,10 @@ class AddForm extends React.Component {
             <form onSubmit={this.onSubmit} style={{display: "flex"}}>
                 <input 
                     type="text" 
-                    name="text" 
+                    name="title" 
                     style={{flex: "10", padding: "5px"}}
                     placeholder="Add Todo..."
-                    value={this.state.text}
+                    value={this.state.title}
                     onChange={this.addText}
                 />
                 <input 
