@@ -37,16 +37,19 @@ class App extends Component {
   }
 
   deleteTodo = (id) => {
-    this.setState({ todos: [...this.state.todos.filter(todo => id !== todo.id)]})
+    axios.delete(`https://jsonplaceholder.typicode.com/todos${id}`)
+      .then(res => this.setState({ todos: [...this.state.todos.filter(todo => id !== todo.id)]}))
+    
   }
 
   addForm = (title) => {
-    const newObj = {
-      id: uuidv4(),
+    axios.post("https://jsonplaceholder.typicode.com/todos", {
       title,
       completed: false
-    };
-    this.setState({ todos: [...this.state.todos, newObj]});
+    })
+      .then(res => (
+        this.setState({ todos: [...this.state.todos, res.data] })
+      ))
   }
 
   render() {
